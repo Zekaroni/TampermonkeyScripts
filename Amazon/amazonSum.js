@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon List Price Sum
 // @namespace    http://tampermonkey.net/
-// @version      v1.2
+// @version      v1.30
 // @description  Shows the sum of all items in an Amazon list.
 // @author       Zekaroni
 // @match        https://www.amazon.com/hz/wishlist/ls/*
@@ -15,7 +15,7 @@
 (function() {
     'use strict';
     var listItems = document.querySelector("#g-items").children;
-    var totalDisplay = document.querySelector("#friends-tab");
+    var totalDisplay = document.querySelector("#profile-list-name");
     var itemValue = 0;
     var listSum = 0;
     var itemPriorityBox;
@@ -35,5 +35,5 @@
             };
         };
     };
-    totalDisplay.textContent = "Total : $" + listSum.toFixed(2);;
+    totalDisplay.textContent += "| Total : $" + listSum.toFixed(2);;
 })();
