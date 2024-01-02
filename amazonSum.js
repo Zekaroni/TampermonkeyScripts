@@ -7,8 +7,8 @@
 // @match        https://www.amazon.com/hz/wishlist/ls/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/your-username/your-repo/master/your-script.user.js
-// @updateURL    https://raw.githubusercontent.com/your-username/your-repo/master/your-script.user.js
+// @downloadURL  https://raw.githubusercontent.com/Zekaroni/AmazonScripts/main/amazonSum.js
+// @updateURL    https://raw.githubusercontent.com/Zekaroni/AmazonScripts/main/amazonSum.js
 // ==/UserScript==
 
 (function() {
