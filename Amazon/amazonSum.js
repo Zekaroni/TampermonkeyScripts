@@ -7,9 +7,9 @@
 // @match        https://www.amazon.com/hz/wishlist/ls/*
 // @icon         data:image/gif;base64,R0lGODlhEAAQAPQAAAAAAGRvkmVwk2p1lmt1lnB5mXF6mXZ/nHuEn3yEnnyEn4KJoYKJooiOpIiOpY2Spo6Tpo2SqI6SqI6TqJSXqZSYqpmdrJmdrZ+ir5+isKSnsqWms6WnswAAAAAAAAAAACH5BAEAAAAALAAAAAAQABAAAAVBICCOZGmeqKitWjpiWYa5omVbNEBVFYVKwKAQAiE5jsjkkcRoOp9NkmKqQEytVNRhe8gZvobcYDzIBQSCQG69DgEAOw==
 // @grant        none
-// @source       https://raw.githubusercontent.com/Zekaroni/AmazonScripts/main/amazonSum.js
-// @downloadURL  https://raw.githubusercontent.com/Zekaroni/AmazonScripts/main/amazonSum.js
-// @updateURL    https://raw.githubusercontent.com/Zekaroni/AmazonScripts/main/amazonSum.js
+// @homepage     https://github.com/Zekaroni/TampermonkeyScripts
+// @downloadURL  https://raw.githubusercontent.com/Zekaroni/TampermonkeyScripts/main/Amazon/amazonSum.js
+// @updateURL    https://raw.githubusercontent.com/Zekaroni/TampermonkeyScripts/main/Amazon/amazonSum.js
 // ==/UserScript==
 
 (function() {
