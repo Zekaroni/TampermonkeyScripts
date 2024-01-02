@@ -35,5 +35,5 @@
             };
         };
     };
-    totalDisplay.textContent += "| Total : $" + listSum.toFixed(2);;
+    totalDisplay.textContent += " | Total : $" + listSum.toFixed(2);;
 })();
