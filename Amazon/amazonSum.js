@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon List Price Sum
 // @namespace    http://tampermonkey.net/
-// @version      1.43
+// @version      1.44
 // @description  Shows the sum of all items in an Amazon list.
 // @author       Zekaroni
 // @match        https://www.amazon.com/hz/wishlist/*
@@ -31,7 +31,7 @@
                 if (itemValue != "-Infinity")
                 {
                     itemPriorityBox = listItems[i].querySelector(".a-fixed-right-grid-col").querySelectorAll(".a-column")[1]
-                    if (itemPriorityBox.classList.contains("a-hidden") || !(itemPriorityBox.querySelector(".a-size-small").children[1].textContent.replace(">", "").trim() == "lowest"))
+                    if (!(itemPriorityBox.querySelector(".a-size-small").children[1].textContent.replace(">", "").trim() == "lowest"))
                     {
                         itemValue = Number(itemValue);
                         listSum+=itemValue;
