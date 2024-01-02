@@ -14,4 +14,13 @@ This script adds all the prices of item in a list on Amazon together and display
 
 Icon for script is <a target="_blank" href="https://icons8.com/icon/K0l4dwcsMaJa/plus">Plus</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
+### amazonAnon.js
+This script "hides" all personal data while viewing Amazon.
+
+#### Features
+- Hide personal data when browsing Amazon
+
+#### Bugs
+- Due to the nature of how Tampermonkey works, the information is still visible for a small amount of time when loading the page (looking for fix)
+
 Icon for script is <a href="https://www.flaticon.com/free-icons/privacy" title="privacy icons">Privacy icons created by iconnut - Flaticon</a>
