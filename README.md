@@ -1,4 +1,7 @@
-# AmazonScripts
+# TampermonkeyScripts
+These are custom scripts I've made for various websites.
+
+## AmazonScripts
 Scripts for Amazon written for Tampermonkey
 
 ## amazonSum.js
