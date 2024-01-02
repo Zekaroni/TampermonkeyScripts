@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amazon List Price Sum
 // @namespace    http://tampermonkey.net/
-// @version      v1.31
+// @version      v1.40
 // @description  Shows the sum of all items in an Amazon list.
 // @author       Zekaroni
 // @match        https://www.amazon.com/hz/wishlist/*
