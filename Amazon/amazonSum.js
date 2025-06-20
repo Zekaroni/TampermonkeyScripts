@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Amazon List Price Sum
 // @namespace    http://tampermonkey.net/
-// @version      1.44
-// @description  Shows the sum of all items in an Amazon list.
+// @version      2.0
+// @description  Displays the total amount of money in the current wish-list.
 // @author       Zekaroni
 // @match        https://www.amazon.com/hz/wishlist/*
 // @icon         data:image/gif;base64,R0lGODlhEAAQAPQAAAAAAGRvkmVwk2p1lmt1lnB5mXF6mXZ/nHuEn3yEnnyEn4KJoYKJooiOpIiOpY2Spo6Tpo2SqI6SqI6TqJSXqZSYqpmdrJmdrZ+ir5+isKSnsqWms6WnswAAAAAAAAAAACH5BAEAAAAALAAAAAAQABAAAAVBICCOZGmeqKitWjpiWYa5omVbNEBVFYVKwKAQAiE5jsjkkcRoOp9NkmKqQEytVNRhe8gZvobcYDzIBQSCQG69DgEAOw==
@@ -12,39 +12,45 @@
 // @updateURL    https://raw.githubusercontent.com/Zekaroni/TampermonkeyScripts/main/Amazon/amazonSum.js
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
-    var totalDisplay = document.querySelector("#profile-list-name");
-    var listName = totalDisplay.textContent
-    var previousTotal = 0;
-    function updateTotalDisplay()
-    {
-        var listItems = document.querySelector("#g-items").children;
-        var listSum = 0;
-        var itemValue = 0;
-        var itemPriorityBox;
-        for (let i = 0; i < listItems.length; i++)
+
+    const priceSections = document.querySelectorAll('.a-section.price-section');
+    let total = 0;
+
+    priceSections.forEach(
+        section =>
         {
-            itemValue = listItems[i].getAttribute("data-price");
-            if (itemValue !== null)
+            const priceSpan = section.querySelector("span[id^='itemPrice_']");
+            if (priceSpan)
             {
-                if (itemValue != "-Infinity")
+                const text = priceSpan.textContent.trim().replace(/,/g, '');
+                const match = text.match(/\$?(\d+(?:\.\d{1,2})?)/);
+                if (match)
                 {
-                    itemPriorityBox = listItems[i].querySelector(".a-fixed-right-grid-col").querySelectorAll(".a-column")[1]
-                    if (!(itemPriorityBox.querySelector(".a-size-small").children[1].textContent.replace(">", "").trim() == "lowest"))
-                    {
-                        itemValue = Number(itemValue);
-                        listSum+=itemValue;
-                    };
-                };
-            };
-        };
-        if (previousTotal != listSum)
-        {
-            totalDisplay.textContent = listName + " | Total : $" + listSum.toFixed(2);
-            previousTotal = listSum
+                    total += parseFloat(match[1]);
+                }
+            }
         }
-        setTimeout(updateTotalDisplay, 1000);
-    };
-    updateTotalDisplay();
+    );
+
+    const formatter = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
+    const formattedTotal = formatter.format(total);
+
+    const totalDiv = document.createElement('div');
+    totalDiv.textContent      = `Total: ${formattedTotal}`;
+    totalDiv.style.fontSize   = '1.2em';
+    totalDiv.style.fontWeight = 'bold';
+    totalDiv.style.color      = '#B12704';                   // Amazon's Orange
+    totalDiv.style.margin     = '10px 0';
+
+    const header = document.getElementById('wl-list-info') ||
+                   document.getElementById('profile-list-name');
+    if (header)
+    {
+        header.parentElement.insertBefore(totalDiv, header.nextSibling);
+    } else
+    {
+        document.body.prepend(totalDiv);
+    }
 })();
